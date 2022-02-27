@@ -1,0 +1,36 @@
+<?php
+/*
+ * Copyright (c) Shaymaa Saied  03/06/2021, 06:21.
+ */
+
+
+/**
+ * @var \MageArab\OrderReview\Block\Adminhtml\Rating\Summary $block
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+?>
+<div class="admin__fieldset">
+    <div class="admin__field field field-summary-rating ">
+        <?php if ($block->getRatingSummary()->getCount()): ?>
+
+            <label class="label admin__field-label" for="summary-rating">
+                <span><?=__('Summary Rating')?></span>
+            </label>
+            <div class="admin__field-control control">
+                <div class="control-value admin__field-value" id="summary-rating">
+                    <div class="rating-box">
+                        <div class="rating"></div>
+                    </div>
+                    <?= /* @noEscape */ $secureRenderer->renderStyleAsTag(
+                        "width:" . /* @noEscape */ ceil($block->getRatingSummary()->getSum() /
+                            ($block->getRatingSummary()->getCount())) . "%;",
+                        'div.rating-box div.rating'
+                    ) ?>
+                </div>
+            </div>
+
+        <?php else: ?>
+            <?= $block->escapeHtml(__("Rating isn't Available")) ?>
+        <?php endif; ?>
+    </div>
+</div>

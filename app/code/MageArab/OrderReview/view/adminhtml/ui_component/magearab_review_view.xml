@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) Shaymaa Saied  02/06/2021, 14:54. 
+  -->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">magearab_review_view.magearab_review_view_data_source</item>
+            <item name="deps" xsi:type="string">magearab_review_view.magearab_review_view_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Employee Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">magearab_review_view</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">MageArab\OrderReview\Block\Adminhtml\Review\Edit\Button\Back</item>
+           <!-- <item name="save" xsi:type="string">MageArab\OrderReview\Block\Adminhtml\Review\Edit\Button\Save</item>-->
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <dataSource name="magearab_review_view_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">MageArab\OrderReview\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">magearab_review_view_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">main_table.review_id</argument>
+            <argument name="requestFieldName" xsi:type="string">review_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="review_details">
+    <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+            <item name="collapsible" xsi:type="boolean">false</item>
+            <item name="label" xsi:type="string" translate="true">Review Details</item>
+            <item name="sortOrder" xsi:type="number">20</item>
+        </item>
+    </argument>
+        <container name="order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+
+                    <item name="sortOrder" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <htmlContent name="review_order">
+                <argument name="block" xsi:type="object">\MageArab\OrderReview\Block\Adminhtml\Review\Order</argument>
+            </htmlContent>
+        </container>
+        <container name="customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">2</item>
+                </item>
+            </argument>
+            <htmlContent name="review_customer">
+                <argument name="block" xsi:type="object">\MageArab\OrderReview\Block\Adminhtml\Review\Customer</argument>
+            </htmlContent>
+        </container>
+
+        <!--<field name="customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Author</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="template" xsi:type="string">ui/form/field</item>
+                    <item name="source" xsi:type="string">review</item>
+                    <item name="dataScope" xsi:type="string">customer</item>
+                    <item name="readOnly" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+        </field>-->
+        <container name="rating_summary">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+            <htmlContent name="rating_summary">
+                <argument name="block" xsi:type="object">\MageArab\OrderReview\Block\Adminhtml\Rating\Summary</argument>
+            </htmlContent>
+        </container>
+        <container name="rating">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+            <htmlContent name="rating_details">
+                <argument name="block" xsi:type="object">\MageArab\OrderReview\Block\Adminhtml\Rating\Details</argument>
+            </htmlContent>
+        </container>
+        <field name="status_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">MageArab\OrderReview\Model\Config\Source\Status</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Status</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="source" xsi:type="string">review</item>
+                    <item name="dataScope" xsi:type="string">status_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">review</item>
+                    <item name="dataScope" xsi:type="string">title</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="detail">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="cols" xsi:type="number">15</item>
+                    <item name="rows" xsi:type="number">5</item>
+                    <item name="source" xsi:type="string">review</item>
+                    <item name="dataScope" xsi:type="string">detail</item>
+                    <item name="label" translate="true" xsi:type="string">Detail</item>
+                    <item name="dataType" translate="true" xsi:type="string">text</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

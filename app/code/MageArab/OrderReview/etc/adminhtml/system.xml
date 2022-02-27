@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (c) Shaymaa Saied  25/05/2021, 16:03.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="order_review" translate="label" type="text" sortOrder="502" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Order Reviews</label>
+            <tab>magearab</tab>
+            <resource>MageArab_OrderReview::config</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="problem_options" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Problems Options</label>
+                </field>
+                <field id="satisfaction_options" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Satisfaction Options</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

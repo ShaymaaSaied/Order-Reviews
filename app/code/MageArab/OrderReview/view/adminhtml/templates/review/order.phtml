@@ -1,0 +1,27 @@
+<?php
+/*
+ * Copyright (c) Shaymaa Saied  03/06/2021, 09:41.
+ */
+
+
+/**
+ * @var \MageArab\OrderReview\Block\Adminhtml\Review\Order $block
+ */
+
+?>
+<div class="admin__fieldset">
+    <div class="admin__field field field-order ">
+        <label class="label admin__field-label" for="order">
+            <span><?=__('Order')?></span>
+        </label>
+        <div class="admin__field-control control">
+            <div id="order" class="control-value admin__field-value">
+                <?php if($order=$block->getOrder()): ?>
+                    <a href="<?=$block->getOrderUrl($order->getEntityId())?>" target="_blank"><?='#'.$order->getIncrementId()?></a>
+                <?php else:?>
+                    <?=__('No Data Available')?>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<?php
+/*
+ * Copyright (c) Shaymaa Saied  03/06/2021, 09:41.
+ */
+
+
+/**
+ * @var \MageArab\OrderReview\Block\Adminhtml\Review\Customer $block
+ */
+
+?>
+<div class="admin__fieldset">
+    <div class="admin__field field field-customer ">
+        <label class="label admin__field-label" for="customer">
+            <span><?=__('Author')?></span>
+        </label>
+        <div class="admin__field-control control">
+            <div id="customer" class="control-value admin__field-value">
+                <?php if($customer=$block->getCustomer()): ?>
+                    <?php
+                        $customerMobile=$customer->getCustomAttribute('customer_mobile_code')->getValue().$customer->getCustomAttribute('customer_mobile')->getValue();
+                    ?>
+                    <a href="<?=$block->getCustomerUrl($customer->getId())?>" target="_blank"><?=$customer->getFirstname().' '.$customer->getLastname()?></a>
+                    <a href="tel:<?=$customerMobile?>">
+                        (<?=$customerMobile?>)
+                    </a>
+                <?php else:?>
+                    <?=__('Guest')?>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+</div>

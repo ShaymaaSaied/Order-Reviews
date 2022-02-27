@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright (c) Shaymaa Saied  25/05/2021, 20:07.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Review\Block\Adminhtml\Rating\Edit\Tab\Form">
+        <plugin name="magearab_rating_form_element_plugin" type="MageArab\OrderReview\Plugin\RatingForm" sortOrder="10" />
+    </type>
+    <preference for="Magento\Review\Controller\Adminhtml\Rating\Save" type="MageArab\OrderReview\Controller\Adminhtml\Rating\Save" />
+    <preference for="Magento\Review\Model\ResourceModel\Rating\Grid\Collection" type="MageArab\OrderReview\Model\ResourceModel\Rating\Grid\Collection" />
+    <preference for="MageArab\OrderReview\Api\Data\RatingVoteInterface" type="MageArab\OrderReview\Model\Data\RatingVote" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="magearab_orders_reviews_data_source" xsi:type="string">
+                    MageArab\OrderReview\Model\ResourceModel\Review\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MageArab\OrderReview\Model\ResourceModel\Review\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">review</argument>
+            <argument name="eventPrefix" xsi:type="string">fields_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">fields_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">\Magento\Review\Model\ResourceModel\Review</argument>
+        </arguments>
+    </virtualType>
+    <!--<type name="Magento\Review\Controller\Adminhtml\Rating\Save">
+        <plugin name="magearab_rating_save_element_plugin" type="MageArab\OrderReview\Plugin\SaveRating" sortOrder="10" />
+    </type>-->
+</config>

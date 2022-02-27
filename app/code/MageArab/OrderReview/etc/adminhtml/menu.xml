@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) Shaymaa Saied  27/05/2021, 01:42.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageArab_OrderReview::review_index" title="Orders Reviews" translate="title" module="MageArab_OrderReview" parent="Magento_Backend::marketing_user_content" sortOrder="10" action="orderreview/review/index" resource="MageArab_OrderReview::review_index"/>
+    </menu>
+</config>

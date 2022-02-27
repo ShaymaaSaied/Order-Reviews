@@ -1,0 +1,55 @@
+<?php
+/*
+ * Copyright (c) Shaymaa Saied  02/06/2021, 16:37.
+ */
+
+/**
+ * @var \MageArab\OrderReview\Block\Adminhtml\Rating\Details $block
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+
+?>
+<div class="admin__fieldset">
+    <?php if ($block->getReviewRatings() && count($block->getReviewRatings())>0): ?>
+        <div class="admin__field field field-detailed-rating">
+            <label class="label admin__field-label" for="detailed-rating" >
+                <span><?=__('Detailed Rating')?></span>
+            </label>
+            <div class="admin__field-control control">
+                <div id="detailed-rating" class="control-value admin__field-value">
+                    <div id="rating_detail">
+                        <?php foreach ($block->getReviewRatings() as $_rating): ?>
+                            <div class="admin__field admin__field-rating" style="display: inline-block;width: 100%">
+                                <label class="admin__field-label" >
+                                    <span><?= $block->escapeHtml($_rating->getRatingCode()) ?></span>
+                                </label>
+                                <?php $_iterator = 1; ?>
+                                <div class="admin__field-control">
+                                    <?php if ($_rating->getPercent()) : ?>
+                                        <div class="ratings">
+                                            <div class="field-summary-rating">
+                                                <div class="rating-box">
+                                                    <div class="rating" style="width:<?= /* @noEscape */ ceil($_rating->getPercent()) ?>%;"></div>
+                                                </div>
+                                                <?= /* @noEscape */ $secureRenderer->renderStyleAsTag(
+                                                    "width:" . /* @noEscape */ ceil($_rating->getPercent()) . "%;",
+                                                    'div.rating-box div.rating'
+                                                ) ?>
+                                            </div>
+
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <?php else: ?>
+        <?= $block->escapeHtml(__("Rating isn't Available")) ?>
+    <?php endif; ?>
+
+</div>

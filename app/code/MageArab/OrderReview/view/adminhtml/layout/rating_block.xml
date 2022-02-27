@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="adminhtml.rating.grid.columnSet">
+            <block class="Magento\Backend\Block\Widget\Grid\Column" name="adminhtml.rating.grid.columnSet.code" as="entity_code">
+                <arguments>
+                    <argument name="header" xsi:type="string" translate="true">Entity Code</argument>
+                    <argument name="index" xsi:type="string">entity_code</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
