@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a764afaf-f397-4024-ad93-508312b777f6" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/app/code/MageArab/OrderReview/Api/Data/RatingVoteInterface.php" afterDir="false" />
@@ -5113,6 +5122,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\xampp\htdocs\OrderReview\app\code\MageArab" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -5121,7 +5135,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645973584804</updated>
-      <workItem from="1645973588520" duration="330000" />
+      <workItem from="1645973588520" duration="1481000" />
     </task>
     <servers />
   </component>
